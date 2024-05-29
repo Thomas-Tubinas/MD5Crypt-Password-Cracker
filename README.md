@@ -1,14 +1,23 @@
 # MD5crypt-Cracker
 ## What does it do?
 This program allows the user to set up a password cracker for any MD5crypt hashes and crack passwords within seconds
-## Instructions
+## Istructions for Application Version
 1. Download the project to VScode
-2. Get a word list such as rockyou.txt
-3. pip install passlib and pip install flask
-4. Go into app.py and input your wordlist on line
-5. In the terminal, run "python app.py"
-6. Enter a valid MD5crypt hash
-## In Progress
+2. cd Application Version
+3. Get a word list such as rockyou.txt or use the one provided
+4. pip install passlib and pip install flask
+5. Go into the program and replace wordlists.txt with the wordlist you want to use
+6. In the terminal, run "python app.py"
+7. Enter a valid MD5crypt hash
+## Istructions for Terminal Version
+1. Download the project to VScode
+2. cd Terminal Version
+3. Get a word list such as rockyou.txt or use the one provided
+4. pip install passlib and pip install flask
+5. Go into the program and replace wordlists.txt with the wordlist you want to use
+6. Go to hashes.txt and add your MD5crypt hashes
+7. Run the program
+## In Progress for Application Version
 1. Frontend
 2. Time Efficiency
 
