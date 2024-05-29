@@ -7,7 +7,7 @@ words = set()
 
 def load_data():
     global words
-    with open("rockyou.txt", "r", encoding="utf-8", errors="ignore") as file:
+    with open("wordlist.txt", "r", encoding="utf-8", errors="ignore") as file:
         lines = file.readlines()
         words = {line.strip() for line in lines}
 load_data()
