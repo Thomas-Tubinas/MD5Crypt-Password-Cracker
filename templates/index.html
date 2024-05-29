@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD5 Hash Cracker</title>
+</head>
+<body>
+    <h1>MD5 Hash Cracker</h1>
+    <form method="POST" action="/crack">
+        <label for="hash">Enter MD5 Hash:</label>
+        <input type="text" id="hash" name="hash" required>
+        <button type="submit">Crack Hash</button>
+    </form>
+
+    {% if cracked is not none %}
+    <h2>Crack Result:</h2>
+    {% if cracked %}
+    <p>The hash <code>{{ hash }}</code> corresponds to the word <code>{{ word }}</code>.</p>
+    {% else %}
+    <p>The hash <code>{{ hash }}</code> could not be cracked using the provided wordlist.</p>
+    {% endif %}
+    {% endif %}
+</body>
+</html>
