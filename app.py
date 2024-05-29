@@ -1,18 +1,16 @@
 from flask import Flask, render_template, request
 from passlib.hash import md5_crypt
-
+import concurrent.futures
 app = Flask(__name__)
 
-words = []
+words = set()
 
 def load_data():
     global words
-    with open("wordlists.txt", "r") as file:
+    with open("rockyou.txt", "r", encoding="utf-8", errors="ignore") as file:
         lines = file.readlines()
-        for line in lines:
-            line = line.strip()
-            words.append(line)
-
+        words = {line.strip() for line in lines}
+load_data()
 def get_salt(hash):
     parts = hash.split('$')
     if len(parts) >= 3:
@@ -34,11 +32,12 @@ def index():
 @app.route('/crack', methods=['POST'])
 def crack_hash():
     target_hash = request.form['hash']
-    load_data()
-    for word in words:
-        if crack(word, target_hash):
-            return render_template('index.html', cracked=True, hash=target_hash, word=word)
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        futures = {executor.submit(crack, word, target_hash): word for word in words}
+        for future in concurrent.futures.as_completed(futures):
+            result = future.result()
+            if result:
+                return render_template('index.html', cracked=True, hash=target_hash, word=result)
     return render_template('index.html', cracked=False, hash=target_hash)
-
 if __name__ == '__main__':
     app.run(debug=True)
