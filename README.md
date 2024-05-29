@@ -8,6 +8,9 @@ This program allows the user to set up a password cracker for any MD5crypt hashe
 4. Go into app.py and input your wordlist on line
 5. In the terminal, run "python app.py"
 6. Enter a valid MD5crypt hash
+## In Progress
+1. Frontend
+2. Time Efficiency
 
 ## Resoruces
 ### Wordlists
