@@ -16,7 +16,7 @@ This program allows the user to set up a password cracker for any MD5crypt hashe
 4. pip install passlib and pip install flask
 5. Go into the program and replace wordlists.txt with the wordlist you want to use
 6. Go to hashes.txt and add your MD5crypt hashes
-7. Run the program
+7. In the terminal, run "python MD5CryptCracker.py"
 ## In Progress for Application Version
 1. Frontend
 2. Time Efficiency
